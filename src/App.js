@@ -1,19 +1,19 @@
-import AddAtricle from "./component/AddAtricle";
-import Articles from "./component/Articles";
-
+import React from "react";
+import { Routes, Route, Link } from 'react-router-dom'
+import AddPost from "./pages/AddPost";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-8">
-          <Articles />
-        </div>
-        <div className="col-md-4">
-          <AddAtricle />
-        </div>
-      </div>
-    </div>
+
+    <Routes>
+
+      <Route path="/" element={<Home />} />
+      <Route path="/add-post" element={<AddPost />} />
+      <Route path="/login" element={<Login />} />
+
+    </Routes>
   );
 }
 
