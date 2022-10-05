@@ -164,6 +164,7 @@ textarea {
 
 .postHeader .title {
   flex: 50%;
+  margin: 15px 0;
 }
 .postHeader .deletePost {
   flex: 50%;
@@ -187,4 +188,25 @@ textarea {
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
+  margin: 20px 0;
+
 }
+
+.icon{
+  font-size: 30px;
+  cursor: pointer;
+  transition: all .3s;
+  /* transform: translateY(10px); */
+  padding: 10px;
+}
+
+.icon:hover {
+  transform: translateY(-10px) scale(1.5);
+  
+}
+
+.deletePost{
+  /* background-color: red; */
+  cursor: pointer;
+}
+

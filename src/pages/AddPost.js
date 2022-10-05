@@ -15,7 +15,15 @@ const AddPost = () => {
 
   let navigate = useNavigate()
 
+  const validateInput = () => {
+    if (title.value == '' || postText.value == ''){
+      prompt('please add a username or a post')
+      return
+    }
+  }
+
   const createPost = async () => {
+    validateInput()
     await addDoc(postCollectionRef, {
       title: title,
       postText: postText,
