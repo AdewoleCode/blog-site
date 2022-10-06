@@ -10,13 +10,20 @@ import { auth } from "./Firebase-config";
 
 function App() {
 
-  const [isAuth, setIsAuth] = useState(false);
+
+
+  const [isAuth, setIsAuth] = useState( localStorage.getItem('isAuth') );
+
+  // localStorage.setItem(isAuth, 'false')
+
+
 
 
   const signUserOut = () => {
     signOut(auth).then(response => {
-      localStorage.clear();
+      localStorage.clear()
       setIsAuth(false)
+      // localStorage.setItem('isAuth', false);
       window.location.pathname = '/login';
     })
   }
@@ -36,7 +43,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home isAuth= {isAuth} />} />
-        <Route path="/add-post" element={<AddPost />} />
+        <Route path="/add-post" element={<AddPost  isAuth={isAuth}/>} />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
       </Routes>
 

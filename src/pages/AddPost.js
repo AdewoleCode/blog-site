@@ -1,18 +1,17 @@
 import { addDoc, collection } from 'firebase/firestore'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { db, auth } from '../Firebase-config'
 import { useNavigate } from 'react-router-dom'
 
 
 
 
-const AddPost = () => {
+const AddPost = (isAuth) => {
 
   const [title, setTitle] = useState('')
   const [postText, setPostText] = useState('')
 
   const postCollectionRef = collection(db, 'posts')
-
   let navigate = useNavigate()
 
   const validateInput = () => {
@@ -34,6 +33,12 @@ const AddPost = () => {
     })
     navigate('/')
   }
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/add-post')
+    }
+  }, [])
 
 
 
